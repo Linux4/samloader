@@ -17,8 +17,10 @@ def normalizevercode(vercode: str) -> str:
 
 def getlatestver(model: str, region: str) -> str:
     """ Get the latest firmware version code for a model and region. """
+    req_headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; ' \
+        + 'rv:90.0) Gecko/20100101 Firefox/90.0'}
     req = requests.get("https://fota-cloud-dn.ospserver.net/firmware/" \
-        + region + "/" + model + "/version.xml")
+        + region + "/" + model + "/version.xml", headers=req_headers)
     if req.status_code == 403:
         raise Exception("Model or region not found (403)")
     req.raise_for_status()
