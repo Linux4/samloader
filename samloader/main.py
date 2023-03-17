@@ -58,7 +58,7 @@ def main():
             if os.path.isfile(dec):
                 print("file {} already exists, refusing to auto-decrypt!")
                 return
-            print("decyrpting", out)
+            print("decrypting", out)
             # TODO: remove code duplication with decrypt command
             getkey = crypt.getv2key if filename.endswith(".enc2") else crypt.getv4key
             key = getkey(args.fw_ver, args.dev_model, args.dev_region)
