@@ -37,7 +37,7 @@ class FUSClient:
         headers = {"Authorization": authv, "User-Agent": "Kies2.0_FUS"}
         if start > 0:
             headers["Range"] = "bytes={}-".format(start)
-        req = requests.get("http://cloud-neofussvr.sslcs.cdngc.net/NF_DownloadBinaryForMass.do",
+        req = requests.get("http://cloud-neofussvr.samsungmobile.com/NF_DownloadBinaryForMass.do",
                            params="file=" + filename, headers=headers, stream=True)
         req.raise_for_status()
         return req
